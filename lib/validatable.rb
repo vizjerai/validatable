@@ -16,6 +16,7 @@ require File.expand_path(File.dirname(__FILE__) + '/validations/validates_format
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_presence_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_acceptance_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_confirmation_of')
+require File.expand_path(File.dirname(__FILE__) + '/validations/validates_inclusion_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_length_of')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_true_for')
 require File.expand_path(File.dirname(__FILE__) + '/validations/validates_numericality_of')
