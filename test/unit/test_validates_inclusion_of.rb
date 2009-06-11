@@ -3,11 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 Expectations do
 
   expect false do
-    validation = Validatable::ValidatesInclusionOf.new stub_everything, :name
-    validation.valid?(stub_everything)
-  end
-
-  expect false do
     validation = Validatable::ValidatesInclusionOf.new stub_everything, :name, :in => [true]
     validation.valid?(stub(:name => false))
   end

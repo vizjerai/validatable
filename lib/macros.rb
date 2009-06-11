@@ -49,6 +49,27 @@ module Validatable
       add_validations(args, ValidatesFormatOf)
     end
     
+    # call-seq: validates_inclusion_of(*args)
+    #
+    # Validates whether the value of the specified attribute is available in a particular enumerable object.
+    #
+    #   class Person
+    #     include Validatable
+    #     validates_inclusion_of :gender, :in => %w( m f ), :message => 'whoa! what are you then!??!!'
+    #     validates_inclusion_of :age, :in => 0..99
+    #     validates_inclusion_of :format, :in => %w ( jpg gif png ), :message => "extension {{value}} is not included in teh list"
+    #   end
+    #
+    # Configuration options:
+    #
+    #     * in - An enumerable object of available items.
+    #     * message - The message to add to the errors collection when the validation fails
+    #     * allow_nil - If set to true, skips this validation if the attribute is nil (default is false)
+    #     * allow_blank - If set to true, skips this validation if the attribute is blank (default is false)
+    def validates_inclusion_of(*args)
+      add_validations(args, ValidatesInclusionOf)
+    end
+    
     # call-seq: validates_length_of(*args)
     # 
     # Validates that the specified attribute matches the length restrictions supplied.

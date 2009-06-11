@@ -1,6 +1,6 @@
 module Validatable
   class ValidatesInclusionOf < ValidationBase #:nodoc:
-    option :in, :within
+    required_option :in
 
     def message(instance)
       super || "is not included in the list"
@@ -13,7 +13,7 @@ module Validatable
       return true if allow_nil && value.nil?
       return true if allow_blank && value.blank?
 
-      enum = self.in || self.within
+      enum = self.in
 
       valid &&= !enum.blank?
       valid &&= enum.respond_to?(:include?)
