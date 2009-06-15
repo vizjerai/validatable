@@ -10,6 +10,24 @@ Expectations do
     klass.new.valid?
   end
   
+  expect 'First Name' do
+    klass = Class.new do
+      include Validatable
+      attr_accessor :first_name, :last_name
+    end
+    instance = klass.new({:first_name => 'First Name', :last_name => 'Last Name'})
+    instance.first_name
+  end
+  
+  expect 'Last Name' do
+    klass = Class.new do
+      include Validatable
+      attr_accessor :first_name, :last_name
+    end
+    instance = klass.new({:first_name => 'First Name', :last_name => 'Last Name'})
+    instance.last_name
+  end
+  
   expect true do
     klass = Class.new do
       include Validatable

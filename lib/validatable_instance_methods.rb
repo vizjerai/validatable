@@ -3,6 +3,24 @@ module Validatable
     klass.extend Validatable::ClassMethods
     klass.extend Validatable::Macros
   end
+
+  def initialize(attributes = nil)
+    # Mass Assignment implementation
+    if attributes
+      attributes.each do |key, value|
+        self[key] = value
+      end
+    end
+    yield self if block_given?
+  end
+
+  def [](key)
+    instance_variable_get("@#{key}")
+  end
+
+  def []=(key, value)
+    instance_variable_set("@#{key}", value)
+  end
   
   # call-seq: valid?
   #

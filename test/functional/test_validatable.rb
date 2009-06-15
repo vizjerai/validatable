@@ -159,6 +159,16 @@ functional_tests do
   end
 
 
+  test 'initialize' do
+    klass = Class.new do
+      include Validatable
+      attr_accessor :first_name, :last_name
+    end
+    instance = klass.new({:first_name => 'First Name', :last_name => 'Last Name'})
+    assert_equal 'First Name', instance.first_name
+    assert_equal 'Last Name', instance.last_name
+  end
+
   test "when child validations have errors, level 2 and higher parent validations are not performed" do
     child_class = Class.new do
       include Validatable
